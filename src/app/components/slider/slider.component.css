@@ -1,0 +1,23 @@
+
+
+.Left{
+  background-size: contain;
+background-attachment: fixed;
+height: 500px;
+
+width: 100vw;
+border-radius: 10px;
+}
+img
+{
+width: 100vw;
+height: 500px;
+
+
+}
+
+
+.slide{
+border-radius: 20px;
+border: 2.5px solid white;
+}

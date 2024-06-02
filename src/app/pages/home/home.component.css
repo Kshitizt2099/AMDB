@@ -1,0 +1,163 @@
+.card{
+  position: relative;
+  height: 300px;
+  width: 300px;
+  margin: 30px;
+  transition: width 0.5s, height 0.3s;
+}
+
+.card img {
+    /* Your styles here */
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+   
+  }
+
+  .container{
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .card:hover {
+    width: 350px;
+    height: 450px;
+     /* Darken the background */
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .card .overlay {
+    visibility: hidden;
+    width: 350px;
+    height: 450px;
+   
+    position: absolute;
+    top:-5px;
+    right: -50%;
+    font-weight: bold;
+    padding: 20px;
+     
+   
+    transition: 0.5s;
+    background-color: transparent;
+   
+    color: white;
+   
+    transition: right 0.5s, visibility 0.1s;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.card:hover .overlay {
+    right: 0;
+    visibility: visible;
+    backdrop-filter: blur(5px);
+    border-radius: 5px
+    
+  }
+  .card .overlay.show {
+    opacity: 1;
+    pointer-events: auto; /* Allow mouse events on the overlay when it's visible */
+  }
+
+  .card-btn{
+     background-color: #1f3d47;
+     color:#8fabba;
+     padding: 10px 20px;
+     border-radius: 5px;
+     text-transform: capitalize;
+  }
+
+  .title{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 50px;
+  }
+
+  .rows{
+    height: 200px;
+    width: 100px;
+  }
+
+.rows img{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.slider{
+  height: 700px;
+  width: 100vw;
+}
+.slider img{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.slider:hover{
+  cursor: pointer;
+
+}
+.swiper {
+  width: 400px;
+  height: 400px; /* Adjust height as needed */
+}
+
+.carousel-inner
+{
+    height: 700px;
+}
+
+.carousel-inner .carousel-item img
+{
+    height: 700px;
+    object-fit: cover;
+}
+
+.carousel-caption h2
+{
+    color: #E50914;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.carousel-caption p 
+{
+    color: #ffffff;
+}
+
+.rowposter{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.rowimg
+{
+    max-height: 100px;
+    object-fit: contain;
+    width: 100%;
+    box-sizing: content-box;
+    transition: transform 450ms;
+    margin-right: 7px;
+}
+
+.rowimg:hover
+{
+    transform: scale(1.09);
+    cursor: pointer;
+}
+
+.largeposter{
+    max-height: 300px;
+}
+
+.rowposter::-webkit-scrollbar
+{
+    display: none;
+}

@@ -1,0 +1,41 @@
+<!-- Swiper Carousel Start -->
+
+<swiper-container loop="true" navigation="true" >
+  <!-- <swiper-slide>Slide 1</swiper-slide>
+  <swiper-slide>Slide 2</swiper-slide>
+  <swiper-slide>Slide 3</swiper-slide> -->
+  <swiper-slide *ngFor="let movie of movies" class="slider" >
+    <div>
+      <a  [href]="'movie/' + movie.id"><img src="https://image.tmdb.org/t/p/original/{{ movie.backdrop_path }}"></a>
+   
+    </div>
+  
+  </swiper-slide>
+
+</swiper-container>
+<!-- Swiper Carousle End -->
+<!-- All Movies -->
+<div class="container">
+  <div class="card" *ngFor="let movie of movies; let i=index">
+    <img src="https://image.tmdb.org/t/p/original/{{ movie.backdrop_path }}" (mouseenter)="showDetails[i]=true" (mouseleave)="showDetails[i]=false" >
+    <div class="overlay">
+         <div>
+          <h5 class="title">{{movie.title}}</h5>
+         </div>
+        
+        <br/>
+        <div>
+          Desc:
+          <p>{{ truncateOverview(movie.overview) }}</p>
+        </div>
+         <div>
+          <a  [href]="'movie/' + movie.id"><button class="card-btn" >Show More Details</button></a>
+         </div>
+        
+    </div>
+  </div>
+</div>
+<!--Movies End -->
+<!-- ActionMovieResult -->
+  <!-- action movies  -->
+ 

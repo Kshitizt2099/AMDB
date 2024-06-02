@@ -1,0 +1,53 @@
+<div class="bar">
+   
+      <input type="text" placeholder="Search" [(ngModel)]="value">
+      <div class="search-btn" (click)="getData(value)">
+        <img src="https://cdn-icons-png.flaticon.com/256/954/954565.png" >
+      </div>
+   
+   
+
+</div>
+
+<ng-container *ngIf="results.length>0">
+
+      <div class="container">
+            <div class="card" *ngFor="let movie of results; let i=index">
+
+               <!-- <ng-container *ngIf="movie.backdrop_path.length;else notFound">
+                  <img src="https://image.tmdb.org/t/p/original/{{ movie.backdrop_path }}" (mouseenter)="showDetails[i]=true" (mouseleave)="showDetails[i]=false" >
+               </ng-container>
+                <ng-template #notFound>
+                  <img src="https://png.pngtree.com/background/20220726/original/pngtree-404-error-page-not-found-picture-image_1822651.jpg" (mouseenter)="showDetails[i]=true" (mouseleave)="showDetails[i]=false" >
+                </ng-template> -->
+                <ng-container *ngIf="movie.backdrop_path; else customImage">
+                  <img src="https://image.tmdb.org/t/p/original/{{ movie.backdrop_path }}" (mouseenter)="showDetails[i]=true" (mouseleave)="showDetails[i]=false" >
+                </ng-container>
+                <ng-template #customImage>
+                  <img src="https://png.pngtree.com/background/20220726/original/pngtree-404-error-page-not-found-picture-image_1822651.jpg" (mouseenter)="showDetails[i]=true" (mouseleave)="showDetails[i]=false" >
+                </ng-template>
+            
+              
+             
+              <div class="overlay">
+                   <div>
+                    <h5 class="title">{{movie.title}}</h5>
+                   </div>
+                  
+                  <br/>
+                  <div>
+                    Desc:
+                    <p>{{ truncateOverview(movie.overview) }}</p>
+                  </div>
+                   <div>
+                    <a  [href]="'movie/' + movie.id"><button class="card-btn" >Show More Details</button></a>
+                   </div>
+                  
+              </div>
+            </div>
+          </div>
+
+</ng-container>
+<ng-container *ngIf="found && results.length<=0">
+  <h1 [ngStyle]="{color:'white'}">No movie Found</h1>
+</ng-container>
